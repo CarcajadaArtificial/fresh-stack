@@ -20,9 +20,10 @@
   "imports": {
     "fresh": "jsr:@fresh/core@^2.0.0-alpha.34",
     "@fresh/plugin-tailwind": "jsr:@fresh/plugin-tailwind@^0.0.1-alpha.7",
+    "@pakornv/fresh-plugin-tailwindcss": "jsr:@pakornv/fresh-plugin-tailwindcss@2.0.0-alpha.1",
     "preact": "npm:preact@^10.26.6",
     "@preact/signals": "npm:@preact/signals@^2.0.4",
-    "tailwindcss": "npm:tailwindcss@^3.4.3"
+    "tailwindcss": "npm:tailwindcss@^4.1.7"
   },
   "compilerOptions": {
     "lib": [
@@ -41,5 +42,7 @@
       "html",
       "head"
     ]
-  }
+  },
+  "lock": false,
+  "nodeModulesDir": "auto"
 }
