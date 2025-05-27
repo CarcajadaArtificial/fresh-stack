@@ -1,12 +1,21 @@
 # Changelog
 
-## Doing
+## Backlog
 
+- Add useful islands:
+  - Key
+  - InterObs
+- Add the lunchbox grid system.
+- Add grainy and dithered gradients.
 - Add `npm:react-daisyui` when the next update arrives that makes it compatible
   with DaisyUI v5.
   [GitHub Issue Link](https://github.com/daisyui/react-daisyui/issues/470)
 
 ## Version History
+
+### v0.0.5
+
+- Added the `@tailwindcss/typography` plugin.
 
 ### v0.0.4
 
