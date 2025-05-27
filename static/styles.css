@@ -1,2 +1,83 @@
 @import "tailwindcss";
-@plugin "daisyui";
+
+@plugin "daisyui" {
+  themes: emerald --default, dim --prefersdark;
+}
+
+/*
+https://daisyui.com/theme-generator/?lang=en#theme=eJx90s1ugzAMAOBXqbLLJkGVEKC0b5Mfp0SjCXJA6zbt3ZfQruug48DB_mLHFvkkTpyAHEg3OtVKfyYZUb7zmAfVwkXssR1iOs8vIEWAnFEa6QkM7AyfY3FBXSnQ-znyCfEoxXPNsk1VZps6fnTLX-ZHlXcDuCH14prXJb070KM9CXxPRmlDa7G0-_rFoAGi6p8OptyV-pGu9hBKXUk1eq_lglY3cDAOKLo1W73dOuMTMNOUSs1gffcxThfCVFxIXhdLW538TaCz7jgtripT7Je2ej8gekwiOZO8nMs_tSi0HUP8NR2oYaqn2wrhdI_GQqcfSnraKV_cINgP-NutaNiMf_sVrNndTHrUkGpYf54SGvqhTfEUOW8DXCMNRoxd3GXAETLSY9wIQ3xar-RgRBfg6xuKKhF2
+*/
+
+@plugin "daisyui/theme" {
+  name: "lunchbox";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: #efe7f3;
+  --color-base-200: #d5ced9;
+  --color-base-300: rgba(61, 54, 64, 0.3);
+  --color-base-content: #3d3640;
+  --color-primary: #00806a;
+  --color-primary-content: #efe7f3;
+  --color-secondary: #0f474d;
+  --color-secondary-content: #efe7f3;
+  --color-accent: #c8d9db;
+  --color-accent-content: #3d3640;
+  --color-neutral: #3d3640;
+  --color-neutral-content: #efe7f3;
+  --color-info: #1f84cc;
+  --color-info-content: #efe7f3;
+  --color-success: #12b362;
+  --color-success-content: #3d3640;
+  --color-warning: #cc5f29;
+  --color-warning-content: #efe7f3;
+  --color-error: #b31b34;
+  --color-error-content: #efe7f3;
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.25rem;
+  --size-selector: 0.28125rem;
+  --size-field: 0.21875rem;
+  --border: 1px;
+  --depth: 1;
+  --noise: 1;
+}
+
+/*
+https://daisyui.com/theme-generator/?lang=en#theme=eJx9kuuKgzAQhV9FLAtdUMnNW98mJpNW1hqZKHtj332Nlm7WFv8Ime_MmTOJ33EvrxCfYjcNA2BjP-IkTlOUup1c6qADNVqcOclyhGsITQudfkq8i6-zO3DtF_x3YxXd4D8_RqvyzhqLGnwPHdZsGobx4nXLqbetg9tJ2c5i6tQFlpW0xLdFs9Yb6SClhMzkwAQ1rNhCtkKueSHIFvIF4rmRR8arJGKczB_Bkohk_HWrVrYfoR-9HQAUhgWCHqYRZbfHwv6HrG1vrAfUVEKpALhJKXBuZvatU5djyV4if5t1REWd5WUdxnyX2Lf92RsZA7IKFwbE5ZkORpUz2szeXe6WIdCsWerKZyG0imieZxUrnmTZ3XrJtKsYsL1K_PRMEyNLHcaCuVPfKGUNL8LQcs68mnIhSlE-mu4OvpvvqtYhTy9Pg5FTN9eM7Bwk8YBgAN3yA59GnODnFxrLGAI
+*/
+
+@plugin "daisyui/theme" {
+  name: "supperbox";
+  default: false;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-base-100: #241f26;
+  --color-base-200: #3d3640;
+  --color-base-300: rgba(238, 230, 242, 0.3);
+  --color-base-content: #eee6f2;
+  --color-primary: #d0fa7d;
+  --color-primary-content: #241f26;
+  --color-secondary: #12b362;
+  --color-secondary-content: #241f26;
+  --color-accent: #344747;
+  --color-accent-content: #eee6f2;
+  --color-neutral: #eee6f2;
+  --color-neutral-content: #241f26;
+  --color-info: #1f84cc;
+  --color-info-content: #eee6f2;
+  --color-success: oklch(72% 0.219 149.579);
+  --color-success-content: oklch(98% 0.018 155.826);
+  --color-warning: #ffea80;
+  --color-warning-content: #241f26;
+  --color-error: #fc7ea8;
+  --color-error-content: #241f26;
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.25rem;
+  --size-selector: 0.28125rem;
+  --size-field: 0.21875rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
