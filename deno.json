@@ -18,6 +18,9 @@
     "**/_fresh/*"
   ],
   "imports": {
+    "@/": "./",
+    "@deno/gfm": "jsr:@deno/gfm@^0.11.0",
+    "@std/fs": "jsr:@std/fs@^1.0.17",
     "@tailwindcss/typography": "npm:@tailwindcss/typography@^0.5.16",
     "daisyui": "npm:daisyui@^5.0.37",
     "fresh": "jsr:@fresh/core@^2.0.0-alpha.34",
@@ -25,7 +28,8 @@
     "@pakornv/fresh-plugin-tailwindcss": "jsr:@pakornv/fresh-plugin-tailwindcss@2.0.0-alpha.1",
     "preact": "npm:preact@^10.26.6",
     "@preact/signals": "npm:@preact/signals@^2.0.4",
-    "tailwindcss": "npm:tailwindcss@^4.1.7"
+    "tailwindcss": "npm:tailwindcss@^4.1.7",
+    "zod": "npm:zod@^3.25.36"
   },
   "compilerOptions": {
     "lib": [

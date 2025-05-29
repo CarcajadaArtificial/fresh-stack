@@ -2,7 +2,7 @@
 
 ## Backlog
 
-- Add useful islands:
+- Add useful components:
   - Key
   - InterObs
 - Add the lunchbox grid system.
@@ -12,6 +12,12 @@
   [GitHub Issue Link](https://github.com/daisyui/react-daisyui/issues/470)
 
 ## Version History
+
+### v0.0.7
+
+- Added the `<Markdown/>` and `<Navbar/>` components.
+- Added focus background and animations.
+- Added prose styles.
 
 ### v0.0.6
 
