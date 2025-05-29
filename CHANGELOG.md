@@ -13,6 +13,12 @@
 
 ## Version History
 
+### v0.0.6
+
+- Added the `<Logo/>` component in favor of the static `logo.svg`.
+- Removed the `<Button/>` component.
+- Added a background noise aesthetic to the stylesheet.
+
 ### v0.0.5
 
 - Added the `@tailwindcss/typography` plugin.

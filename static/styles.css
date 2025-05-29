@@ -1,9 +1,37 @@
 @import "tailwindcss";
 
+@theme {
+  --breakpoint-md: 40em;
+  --breakpoint-lg: 80em;
+
+  --spacing-1-8: 0.125em;
+  --spacing-1-4: 0.25em;
+  --spacing-3-8: 0.375em;
+  --spacing-1-3: 0.3333333333em;
+  --spacing-1-2: 0.5em;
+  --spacing-5-8: 0.625em;
+  --spacing-2-3: 0.6666666666em;
+  --spacing-3-4: 0.75em;
+  --spacing-7-8: 0.875em;
+  --spacing-1-1: 1em;
+  --spacing-3-2: 1.5em;
+  --spacing-2-1: 2em;
+  --spacing-3-1: 3em;
+  --spacing-4-1: 4em;
+}
+
+/**
+ * @todo Can the noise variables be refactored to noise opacity variables and added as:
+ *    `--fx-noise-opacity: url(... opacity="var(--fx-noise-50) ...);"`?
+ */
+:root {
+  --fx-noise-50: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.34' numOctaves='4' stitchTiles='stitch'%3E%3C/feTurbulence%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='0.05'%3E%3C/rect%3E%3C/svg%3E");
+}
+
 @plugin "@tailwindcss/typography";
 
 @plugin "daisyui" {
-  themes: emerald --default, dim --prefersdark;
+  themes: false;
 }
 
 /*
@@ -35,13 +63,17 @@ https://daisyui.com/theme-generator/?lang=en#theme=eJx90s1ugzAMAOBXqbLLJkGVEKC0b
   --color-warning-content: #efe7f3;
   --color-error: #b31b34;
   --color-error-content: #efe7f3;
+
   --radius-selector: 0.5rem;
   --radius-field: 0.5rem;
   --radius-box: 0.25rem;
+
   --size-selector: 0.28125rem;
   --size-field: 0.21875rem;
+
   --border: 1px;
-  --depth: 1;
+
+  --depth: 0;
   --noise: 1;
 }
 
@@ -74,12 +106,15 @@ https://daisyui.com/theme-generator/?lang=en#theme=eJx9kuuKgzAQhV9FLAtdUMnNW98mJ
   --color-warning-content: #241f26;
   --color-error: #fc7ea8;
   --color-error-content: #241f26;
-  --radius-selector: 0.5rem;
-  --radius-field: 0.5rem;
-  --radius-box: 0.25rem;
-  --size-selector: 0.28125rem;
-  --size-field: 0.21875rem;
-  --border: 1px;
-  --depth: 0;
-  --noise: 0;
+}
+
+html, .noise {
+  background-size: auto, calc(var(--noise) * 100%);
+  background-image: none, var(--fx-noise);
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    background-image: none, var(--fx-noise-50);
+  }
 }
