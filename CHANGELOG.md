@@ -5,19 +5,22 @@
 - Add useful components:
   - Key
   - InterObs
-- Add the lunchbox grid system.
-- Add grainy and dithered gradients.
 - Add `npm:react-daisyui` when the next update arrives that makes it compatible
   with DaisyUI v5.
   [GitHub Issue Link](https://github.com/daisyui/react-daisyui/issues/470)
 
 ## Version History
 
+### v0.0.8
+
+- Added a tailwind `@layer` refactoring.
+- Removed the glass style from the navbar.
+
 ### v0.0.7
 
 - Added the `<Markdown/>` and `<Navbar/>` components.
 - Added focus background and animations.
-- Added prose styles.
+- Added additional prose styles.
 
 ### v0.0.6
 
