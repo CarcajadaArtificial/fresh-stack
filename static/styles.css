@@ -182,3 +182,82 @@ https://daisyui.com/theme-generator/?lang=en#theme=eJx9kuuKgzAQhV9FLAtdUMnNW98mJ
     opacity: 1;
   }
 }
+
+.shake:focus {
+  animation: 200ms steps(1, jump-start) shake;
+}
+.shake_left:focus {
+  animation: 125ms steps(1, jump-start) shake_left;
+}
+.shake_right:focus {
+  animation: 125ms steps(1, jump-start) shake_right;
+}
+.shake_up:focus {
+  animation: 125ms steps(1, jump-start) shake_up;
+}
+.shake_down:focus {
+  animation: 125ms steps(1, jump-start) shake_down;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(0);
+  }
+  33% {
+    transform: translate(0.125rem, 0.125rem);
+  }
+  67% {
+    transform: translate(-0.125rem, -0.125rem);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes shake_left {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-0.25rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes shake_right {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(0.25rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes shake_up {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.25rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake_down {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(0.25rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

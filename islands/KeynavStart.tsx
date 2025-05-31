@@ -83,12 +83,20 @@ export default function ({
 } = {}) {
   useEffect(() => {
     function handleKeyDown(this: HTMLElement, e: KeyboardEvent) {
-      const direction = e.key;
-      if (
-        !["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(
-          direction,
-        )
-      ) {
+      const key = e.key;
+      if (key === "Enter") {
+        ["shake_up", "shake_down", "shake_left", "shake_right", "shake"]
+          .forEach((cls) => {
+            if (this.classList.contains(cls)) {
+              this.classList.remove(cls);
+            }
+          });
+        this.offsetWidth;
+        this.classList.add("shake");
+        return;
+      }
+
+      if (!["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(key)) {
         return;
       }
 
@@ -96,14 +104,39 @@ export default function ({
       const tabbedElements = Array.from(
         document.querySelectorAll<HTMLElement>('[tabindex="0"]'),
       );
-      const candidate = findCandidate(this, direction, tabbedElements, padding);
+      const candidate = findCandidate(this, key, tabbedElements, padding);
 
       if (candidate) {
         this.removeEventListener("keydown", handleKeyDown);
         candidate.focus();
-        console.log("Moved focus to:", candidate);
       } else {
-        console.log('No element with tabindex="0" found for', direction);
+        // No candidate found: ensure only one arrow shake class
+        const dir = key.replace("Arrow", "").toLowerCase();
+        const shakeClass = `shake_${dir}`; // shake_up, shake_down, shake_left, shake_right
+        const allShakeClasses = [
+          "shake_up",
+          "shake_down",
+          "shake_left",
+          "shake_right",
+          "shake",
+        ];
+
+        // Remove any existing shake classes except the one to add
+        allShakeClasses.forEach((cls) => {
+          if (cls !== shakeClass && this.classList.contains(cls)) {
+            this.classList.remove(cls);
+          }
+        });
+
+        // If the same class already exists, remove it to replay animation
+        if (this.classList.contains(shakeClass)) {
+          this.classList.remove(shakeClass);
+          // Force reflow
+          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+          this.offsetWidth;
+        }
+
+        this.classList.add(shakeClass);
       }
     }
 
@@ -124,6 +157,14 @@ export default function ({
         target.getAttribute("tabindex") === "0"
       ) {
         target.removeEventListener("keydown", handleKeyDown);
+        // Remove any shake classes on blur
+        target.classList.remove(
+          "shake_up",
+          "shake_down",
+          "shake_left",
+          "shake_right",
+          "shake",
+        );
       }
     });
   }, [padding]);

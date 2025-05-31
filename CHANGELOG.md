@@ -11,6 +11,11 @@
 
 ## Version History
 
+### v0.0.12
+
+- Added shake animations to the keyboard navigation.
+- Added a special case for the `<summary/>` when making a focusable markdown.
+
 ### v0.0.11
 
 - Added the `focusable` property to the `<Markdown/>` component.

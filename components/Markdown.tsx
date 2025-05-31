@@ -3,7 +3,7 @@ import { DOMParser, Element } from "jsr:@b-fuze/deno-dom";
 import { z } from "zod/v4";
 
 export const MarkdownSchema = z.object({
-  focusable: z.boolean().optional(),
+  focusable: z.boolean(),
   content: z
     .string(),
   renderOptions: z
@@ -44,7 +44,14 @@ export default function (props: MarkdownProps) {
     if (doc) {
       const body = doc.body;
       Array.from(body.children).forEach((el) => {
-        if (el instanceof Element) {
+        if (!(el instanceof Element)) return;
+        const tag = el.tagName.toLowerCase();
+        if (tag === "details") {
+          const summary = el.querySelector("summary");
+          if (summary instanceof Element) {
+            summary.setAttribute("tabindex", "0");
+          }
+        } else {
           el.setAttribute("tabindex", "0");
         }
       });
