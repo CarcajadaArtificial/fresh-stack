@@ -9,7 +9,7 @@ export default define.page(async function Md() {
   return (
     <Layout>
       <main class="col-span-6 lg:col-span-9 mt-2-1">
-        <Markdown content={await (await fetch(CONTENT_URL)).text()} />
+        <Markdown focusable content={await (await fetch(CONTENT_URL)).text()} />
       </main>
     </Layout>
   );

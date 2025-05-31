@@ -19,6 +19,8 @@
   ],
   "imports": {
     "@/": "./",
+    "@b-fuze/deno-dom": "jsr:@b-fuze/deno-dom@^0.1.49",
+    "@carcajada/teclas": "jsr:@carcajada/teclas@^1.0.8",
     "@deno/gfm": "jsr:@deno/gfm@^0.11.0",
     "@std/fs": "jsr:@std/fs@^1.0.17",
     "@tailwindcss/typography": "npm:@tailwindcss/typography@^0.5.16",

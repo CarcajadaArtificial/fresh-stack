@@ -1,10 +1,10 @@
 import { useEffect } from "preact/hooks";
 
-// Given a current element, direction, and list of elements with tabindex="0", finds the best candidate
 function findCandidate(
   current: HTMLElement,
   direction: string,
   tabbedElements: HTMLElement[],
+  padding: number = 0,
 ): HTMLElement | null {
   const currentRect = current.getBoundingClientRect();
   let closest: HTMLElement | null = null;
@@ -19,8 +19,10 @@ function findCandidate(
     switch (direction) {
       case "ArrowRight":
         if (rect.left > currentRect.right) {
+          const paddedTop = currentRect.top - padding;
+          const paddedBottom = currentRect.bottom + padding;
           const yOverlap =
-            !(rect.bottom < currentRect.top || rect.top > currentRect.bottom);
+            !(rect.bottom < paddedTop || rect.top > paddedBottom);
           if (yOverlap) {
             isCandidate = true;
             distance = rect.left - currentRect.right;
@@ -29,8 +31,10 @@ function findCandidate(
         break;
       case "ArrowLeft":
         if (rect.right < currentRect.left) {
+          const paddedTop = currentRect.top - padding;
+          const paddedBottom = currentRect.bottom + padding;
           const yOverlap =
-            !(rect.bottom < currentRect.top || rect.top > currentRect.bottom);
+            !(rect.bottom < paddedTop || rect.top > paddedBottom);
           if (yOverlap) {
             isCandidate = true;
             distance = currentRect.left - rect.right;
@@ -39,8 +43,10 @@ function findCandidate(
         break;
       case "ArrowDown":
         if (rect.top > currentRect.bottom) {
+          const paddedLeft = currentRect.left - padding;
+          const paddedRight = currentRect.right + padding;
           const xOverlap =
-            !(rect.right < currentRect.left || rect.left > currentRect.right);
+            !(rect.right < paddedLeft || rect.left > paddedRight);
           if (xOverlap) {
             isCandidate = true;
             distance = rect.top - currentRect.bottom;
@@ -49,8 +55,10 @@ function findCandidate(
         break;
       case "ArrowUp":
         if (rect.bottom < currentRect.top) {
+          const paddedLeft = currentRect.left - padding;
+          const paddedRight = currentRect.right + padding;
           const xOverlap =
-            !(rect.right < currentRect.left || rect.left > currentRect.right);
+            !(rect.right < paddedLeft || rect.left > paddedRight);
           if (xOverlap) {
             isCandidate = true;
             distance = currentRect.top - rect.bottom;
@@ -68,34 +76,37 @@ function findCandidate(
   return closest;
 }
 
-// Handles keydown on an element with tabindex="0" to move focus in arrow-key direction
-function handleKeyDown(this: HTMLElement, e: KeyboardEvent) {
-  const direction = e.key;
-  if (
-    !["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(
-      direction,
-    )
-  ) {
-    return;
-  }
-
-  e.preventDefault();
-  const tabbedElements = Array.from(
-    document.querySelectorAll<HTMLElement>('[tabindex="0"]'),
-  );
-  const candidate = findCandidate(this, direction, tabbedElements);
-
-  if (candidate) {
-    this.removeEventListener("keydown", handleKeyDown);
-    candidate.focus();
-    console.log("Moved focus to:", candidate);
-  } else {
-    console.log('No element with tabindex="0" found for', direction);
-  }
-}
-
-export default function () {
+export default function ({
+  padding = 0,
+}: {
+  padding?: number;
+} = {}) {
   useEffect(() => {
+    function handleKeyDown(this: HTMLElement, e: KeyboardEvent) {
+      const direction = e.key;
+      if (
+        !["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(
+          direction,
+        )
+      ) {
+        return;
+      }
+
+      e.preventDefault();
+      const tabbedElements = Array.from(
+        document.querySelectorAll<HTMLElement>('[tabindex="0"]'),
+      );
+      const candidate = findCandidate(this, direction, tabbedElements, padding);
+
+      if (candidate) {
+        this.removeEventListener("keydown", handleKeyDown);
+        candidate.focus();
+        console.log("Moved focus to:", candidate);
+      } else {
+        console.log('No element with tabindex="0" found for', direction);
+      }
+    }
+
     document.addEventListener("focusin", (e: FocusEvent) => {
       const target = e.target;
       if (
@@ -115,6 +126,7 @@ export default function () {
         target.removeEventListener("keydown", handleKeyDown);
       }
     });
-  }, []);
+  }, [padding]);
+
   return null;
 }

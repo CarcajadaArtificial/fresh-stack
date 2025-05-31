@@ -14,7 +14,7 @@ export default function App({ Component }: PageProps) {
       <body>
         <Navbar />
         <Component />
-        <KeynavStart />
+        <KeynavStart padding={100} />
       </body>
     </html>
   );

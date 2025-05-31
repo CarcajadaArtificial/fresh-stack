@@ -11,6 +11,11 @@
 
 ## Version History
 
+### v0.0.11
+
+- Added the `focusable` property to the `<Markdown/>` component.
+- Added the `padding` property to the `<KeynavStart/>` island.
+
 ### v0.0.10
 
 - Added the `<KeynavStarter/>` island.
