@@ -59,13 +59,9 @@ export default function (props: MarkdownProps) {
     }
   }
 
-  return (
-    <div
-      class="prose"
-      // deno-lint-ignore react-no-danger
-      dangerouslySetInnerHTML={{
-        __html: content,
-      }}
-    />
-  );
+  return {
+    dangerouslySetInnerHTML: {
+      __html: content,
+    },
+  };
 }

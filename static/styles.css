@@ -124,6 +124,10 @@ https://daisyui.com/theme-generator/?lang=en#theme=eJx9kuuKgzAQhV9FLAtdUMnNW98mJ
   .noise {
     background-size: auto, calc(var(--noise) * 100%);
     background-image: none, var(--fx-noise);
+
+    @variant dark {
+      background-image: none, var(--fx-noise-50);
+    }
   }
 
   .prose {
@@ -149,6 +153,23 @@ https://daisyui.com/theme-generator/?lang=en#theme=eJx9kuuKgzAQhV9FLAtdUMnNW98mJ
       align-items: center;
       margin-top: var(--spacing-2-1);
       scroll-margin-top: var(--spacing-3-1);
+    }
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    margin-inline: var(--spacing-1-2);
+    gap: var(--spacing-1-2);
+
+    @media (min-width: 40em) {
+      margin-inline: var(--spacing-1-1);
+      gap: var(--spacing-1-1);
+    }
+
+    @media (min-width: 80em) {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      margin-inline: 20%;
     }
   }
 }

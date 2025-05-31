@@ -11,6 +11,10 @@
 
 ## Version History
 
+### v0.0.13
+
+- Removed the `<Layout/>` component in favor of the `.layout` css class.
+
 ### v0.0.12
 
 - Added shake animations to the keyboard navigation.
