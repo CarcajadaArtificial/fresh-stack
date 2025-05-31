@@ -11,6 +11,7 @@ export default function Counter(props: CounterProps) {
         type="button"
         class="btn btn-primary"
         onClick={() => props.count.value -= 1}
+        tabIndex={0}
       >
         -1
       </button>
@@ -19,6 +20,7 @@ export default function Counter(props: CounterProps) {
         type="button"
         class="btn btn-primary"
         onClick={() => props.count.value += 1}
+        tabIndex={0}
       >
         +1
       </button>
