@@ -1,5 +1,5 @@
 import { define } from "@/utils.ts";
-import md from "@/components/Markdown.tsx";
+import { md } from "@lunchbox/ui";
 
 const CONTENT_URL =
   "https://raw.githubusercontent.com/denoland/deno-gfm/refs/heads/main/example/content.md";
@@ -13,6 +13,7 @@ export default define.page(async function Md() {
           {...md({
             content: await (await fetch(CONTENT_URL)).text(),
             focusable: true,
+            renderOptions: {},
           })}
         />
       </div>

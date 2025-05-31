@@ -2,14 +2,17 @@
 
 ## Backlog
 
-- Add useful components:
-  - Key
-  - InterObs
+- Package lunchbox.css to `@lunchbox/ui` and import it here.
 - Add `npm:react-daisyui` when the next update arrives that makes it compatible
   with DaisyUI v5.
   [GitHub Issue Link](https://github.com/daisyui/react-daisyui/issues/470)
 
 ## Version History
+
+### v0.0.14
+
+- Removed the keynav and markdown components by packaging them to
+  `@lunchbox/ui`.
 
 ### v0.0.13
 

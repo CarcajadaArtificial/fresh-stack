@@ -1,6 +1,6 @@
 import type { PageProps } from "fresh";
 import Navbar from "@/components/Navbar.tsx";
-import KeynavStart from "@/islands/KeynavStart.tsx";
+import Keynav from "../islands/Keynav.tsx";
 
 export default function App({ Component }: PageProps) {
   return (
@@ -14,7 +14,7 @@ export default function App({ Component }: PageProps) {
       <body>
         <Navbar />
         <Component />
-        <KeynavStart padding={100} />
+        <Keynav padding={100} />
       </body>
     </html>
   );
