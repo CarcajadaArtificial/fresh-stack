@@ -11,12 +11,8 @@ export default function App({ Component }: PageProps) {
         <link rel="stylesheet" href="/styles.css" />
       </head>
       <body>
-        <div class="max-w-4xl mx-auto mt-2-1">
-          <Navbar />
-          <div class="mt-2-1">
-            <Component />
-          </div>
-        </div>
+        <Navbar />
+        <Component />
       </body>
     </html>
   );

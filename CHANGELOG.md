@@ -11,6 +11,10 @@
 
 ## Version History
 
+### v0.0.9
+
+- Added the `<Layout/>` component.
+
 ### v0.0.8
 
 - Added a tailwind `@layer` refactoring.

@@ -22,6 +22,7 @@
     "@deno/gfm": "jsr:@deno/gfm@^0.11.0",
     "@std/fs": "jsr:@std/fs@^1.0.17",
     "@tailwindcss/typography": "npm:@tailwindcss/typography@^0.5.16",
+    "@vyn/cn": "jsr:@vyn/cn@^0.1.2",
     "daisyui": "npm:daisyui@^5.0.37",
     "fresh": "jsr:@fresh/core@^2.0.0-alpha.34",
     "@fresh/plugin-tailwind": "jsr:@fresh/plugin-tailwind@^0.0.1-alpha.7",
