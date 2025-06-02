@@ -9,6 +9,10 @@
 
 ## Version History
 
+### v0.0.15
+
+- Added a fix for the dom parser.
+
 ### v0.0.14
 
 - Removed the keynav and markdown components by packaging them to

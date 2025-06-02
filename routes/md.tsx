@@ -1,5 +1,6 @@
 import { define } from "@/utils.ts";
 import { md } from "@lunchbox/ui";
+import { DOMParser, Element } from "jsr:@b-fuze/deno-dom";
 
 const CONTENT_URL =
   "https://raw.githubusercontent.com/denoland/deno-gfm/refs/heads/main/example/content.md";
@@ -12,8 +13,23 @@ export default define.page(async function Md() {
           class="prose"
           {...md({
             content: await (await fetch(CONTENT_URL)).text(),
-            focusable: true,
             renderOptions: {},
+            transform: (content: string) => {
+              const doc = new DOMParser().parseFromString(content, "text/html");
+              const body = doc.body;
+              Array.from(body.children).forEach((el) => {
+                if (!(el instanceof Element)) return;
+                else if (
+                  el.tagName.toLowerCase() === "details" &&
+                  el.querySelector("summary") instanceof Element
+                ) {
+                  el.querySelector("summary")!.setAttribute("tabindex", "0");
+                } else {
+                  el.setAttribute("tabindex", "0");
+                }
+              });
+              return body.innerHTML;
+            },
           })}
         />
       </div>

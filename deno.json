@@ -19,7 +19,8 @@
   ],
   "imports": {
     "@/": "./",
-    "@lunchbox/ui": "jsr:@lunchbox/ui@3.0.0-alpha.2",
+    "@b-fuze/deno-dom": "jsr:@b-fuze/deno-dom@^0.1.49",
+    "@lunchbox/ui": "jsr:@lunchbox/ui@3.0.0-alpha.3",
     "@std/fs": "jsr:@std/fs@^1.0.17",
     "@tailwindcss/typography": "npm:@tailwindcss/typography@^0.5.16",
     "daisyui": "npm:daisyui@^5.0.37",
