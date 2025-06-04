@@ -2,12 +2,15 @@
 
 ## Backlog
 
-- Package lunchbox.css to `@lunchbox/ui` and import it here.
 - Add `npm:react-daisyui` when the next update arrives that makes it compatible
   with DaisyUI v5.
   [GitHub Issue Link](https://github.com/daisyui/react-daisyui/issues/470)
 
 ## Version History
+
+### v0.0.16
+
+- Removed the lunchbox styles in favor of the `npm:lunchbox-css` package.
 
 ### v0.0.15
 

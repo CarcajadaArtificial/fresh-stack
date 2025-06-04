@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "./lunchbox.css";
+@import "../node_modules/lunchbox-css/index.css";
 
 @plugin "@tailwindcss/typography";
 
