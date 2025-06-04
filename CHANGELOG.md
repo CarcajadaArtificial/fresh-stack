@@ -8,6 +8,10 @@
 
 ## Version History
 
+### v0.0.17
+
+- Added an updated import for the `lunchbox-css` modules.
+
 ### v0.0.16
 
 - Removed the lunchbox styles in favor of the `npm:lunchbox-css` package.

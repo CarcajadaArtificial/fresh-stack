@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "../node_modules/lunchbox-css/index.css";
+@import "../node_modules/lunchbox-css/styles/noise.css";
+@import "../node_modules/lunchbox-css/styles/keynav.css";
 
 @plugin "@tailwindcss/typography";
 
